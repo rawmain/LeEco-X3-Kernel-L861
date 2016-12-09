@@ -182,6 +182,11 @@ extern void swsusp_show_speed(struct timeval *, struct timeval *,
 				unsigned int, char *);
 
 #ifdef CONFIG_SUSPEND
+struct pm_sleep_state {
+	const char *label;
+	suspend_state_t state;
+};
+
 /* kernel/power/suspend.c */
 #ifdef CONFIG_EARLYSUSPEND
 struct pm_sleep_state {
@@ -197,7 +202,6 @@ extern int enter_state(suspend_state_t state);
 #else
 extern const char *const pm_states[];
 
-extern bool valid_state(suspend_state_t state);
 extern int suspend_devices_and_enter(suspend_state_t state);
 #endif
 #else /* !CONFIG_SUSPEND */

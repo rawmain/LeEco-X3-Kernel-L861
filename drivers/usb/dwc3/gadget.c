@@ -1264,6 +1264,9 @@ static int dwc3_gadget_ep_set_halt(struct usb_ep *ep, int value)
 	}
 
 	ret = __dwc3_gadget_ep_set_halt(dep, value, false);
+	dbg_event(dep->number, "HALT", value);
+	ret = __dwc3_gadget_ep_set_halt(dep, value, false);
+
 out:
 	spin_unlock_irqrestore(&dwc->lock, flags);
 
