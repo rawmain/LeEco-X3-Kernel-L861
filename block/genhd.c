@@ -694,21 +694,13 @@ struct gendisk *get_gendisk(dev_t devt, int *partno)
 	} else {
 		struct hd_struct *part;
 
-<<<<<<< HEAD
 		spin_lock(&ext_devt_lock);
-=======
-		spin_lock_bh(&ext_devt_lock);
->>>>>>> 684ed11... Update: 3.10.49 >> 3.10.102
 		part = idr_find(&ext_devt_idr, blk_mangle_minor(MINOR(devt)));
 		if (part && get_disk(part_to_disk(part))) {
 			*partno = part->partno;
 			disk = part_to_disk(part);
 		}
-<<<<<<< HEAD
 		spin_unlock(&ext_devt_lock);
-=======
-		spin_unlock_bh(&ext_devt_lock);
->>>>>>> 684ed11... Update: 3.10.49 >> 3.10.102
 	}
 
 	return disk;
