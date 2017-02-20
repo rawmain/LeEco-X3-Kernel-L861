@@ -16,10 +16,10 @@
 restore='\033[0m'
 KERNEL_DIR=$PWD
 KERNEL="Image.gz-dtb"
-ANYKERNEL_DIR="$KERNEL_DIR/ak"
+ANYKERNEL_DIR="$KERNEL_DIR/AnyKernel2"
 REPACK_DIR="$ANYKERNEL_DIR"
 ZIP_MOVE="$KERNEL_DIR"
-KERN_IMG=$KERNEL_DIR/arch/arm/boot/Image.gz-dtb
+KERN_IMG=$KERNEL_DIR/arch/arm64/boot/Image.gz-dtb
 BASE_VER="Infernus"
 VER="-v1-$(date +"%Y-%m-%d"-%H%M)-"
 ZIP_VER="$BASE_VER$VER$TC"
@@ -34,13 +34,13 @@ nocol='\033[0m'
 TC="UBERTC"
 # Modify the following variable if you want to build
 export ARCH=arm64
-export LD_LIBRARY_PATH="/home/droidthug/ubertc/scripts/out/aarch64-linux-android-4.9/lib"
-export CROSS_COMPILE="/home/droidthug/ubertc/scripts/out/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
-export SUBARCH=arm64
-export KBUILD_BUILD_USER="DroidThug"
-export KBUILD_BUILD_HOST="EvoqueUnit"
-STRIP="/home/droidthug/ubertc/scripts/out/aarch64-linux-android-4.9/bin/aarch64-linux-android-strip"
-MODULES_DIR=$KERNEL_DIR/arch/arm/boot/AnyKernel2/modules
+export LD_LIBRARY_PATH="/media/wks/System/aarch64-linux-android-4.9/lib"
+export CROSS_COMPILE="/media/wks/System/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
+export SUBARCH=arm
+export KBUILD_BUILD_USER="WisniaPL"
+export KBUILD_BUILD_HOST="PC"
+STRIP="/media/wks/System/aarch64-linux-android-4.9/bin/aarch64-linux-android-strip"
+MODULES_DIR=$KERNEL_DIR/arch/arm64/boot/AnyKernel2/modules
 
 echo -e "${green}"
 echo "--------------------------------------------------------"
@@ -58,7 +58,7 @@ $clean make clean && make mrproper
 echo -e "$yellow***********************************************"
 echo "          Initialising DEFCONFIG        "
 echo -e "***********************************************$nocol"
-make infernus_defconfig 
+make x500_defconfig 
 echo -e "$yellow***********************************************"
 echo "          Cooking INFERNUS         "
 echo -e "***********************************************$nocol"
