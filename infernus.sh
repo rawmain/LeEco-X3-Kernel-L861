@@ -63,8 +63,8 @@ echo -e "$yellow***********************************************"
 echo "          Cooking INFERNUS         "
 echo -e "***********************************************$nocol"
 make -j8
-#cp -vr $KERN_IMG $REPACK_DIR/Image.gz-dtb
-#cd $REPACK_DIR
-#zip -r `echo $Phantom_VER$TC`.zip *
-#mv  `echo $Phantom_VER$TC`.zip $ZIP_MOVE
-#cd $KERNEL_DIR
+cp -vr $KERN_IMG $REPACK_DIR/Image.gz-dtb
+cd $REPACK_DIR
+zip -r `echo $Phantom_VER$TC`.zip *
+mv  `echo $Phantom_VER$TC`.zip $ZIP_MOVE
+cd $KERNEL_DIR
